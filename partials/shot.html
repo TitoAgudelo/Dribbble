@@ -1,0 +1,78 @@
+<div class="media shot_header">
+  <div class="pull-left">
+    <img class="media-object" ng-src="{{shot.player.avatar_url}}" >
+  </div>
+  <div class="media-body">
+    <h1>{{shot.title}}</h1>
+    <span class="muted">by</span>
+    <a href="#/players/{{shot.player.username}}">
+      {{shot.player.name}}
+    </a>
+    | 
+    {{shot.created_at | dabbbleDate:"MMM d, yyyy"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <img class="shot_image" ng-src="{{shot.image_url}}">
+
+    <div class="page-header">
+      <h2>Responses</h2>
+    </div>
+    <div ng-repeat = "comment in comments.comments" class="media comment">
+      <div class="pull-left">
+        <img class="media-object" ng-src="{{comment.player.avatar_url}}">
+      </div>
+      <div class="media-body">
+        <strong>
+          <a href="#/players/{{comment.player.username}}">
+            {{comment.player.name}}
+          </a>
+        </strong>
+        <p ng-bind-html-unsafe="comment.body"></p>
+      </div>
+
+    </div>
+    <button 
+      class="btn btn-primary" 
+      ng-show="comments.page < comments.pages"
+      ng-click="comments.loadNextPage()">
+      Load More Comments
+    </button>
+  </div>
+
+  <div class="span3">
+      <ul class="nav nav-list">
+        <li>
+          <i class="icon-heart"></i>
+          {{shot.likes_count}} Likes
+        </li>
+        <li>
+          <i class="icon-eye-open"></i>
+          {{shot.views_count}} Views
+        </li>
+        <li>
+          <i class="icon-share-alt"></i>
+          {{shot.rebounds_count}} Rebounds
+        </li>
+        <li>
+          <i class="icon-comment"></i>
+          {{shot.comments_count}} Comments
+        </li>
+        <li>
+          <a href="{{shot.short_url}}">
+            <i class="icon-globe"></i>
+            {{shot.short_url}}
+          </a>
+        </li>
+      </ul>
+
+  </div>
+  <div class="span3">
+    <h2>Rebounds</h2>
+    <div shot-list="rebounds"></div>
+  </div>
+</div>
+
+
