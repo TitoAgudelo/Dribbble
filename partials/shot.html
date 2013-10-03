@@ -1,8 +1,8 @@
-<div class="media shot_header">
-  <div class="pull-left">
-    <img class="media-object" ng-src="{{shot.player.avatar_url}}" >
+<div class="row content-shots">
+  <div class="large-1 columns">
+    <img class="media-img" ng-src="{{shot.player.avatar_url}}" >
   </div>
-  <div class="media-body">
+  <div class="large-11 columns content-player">
     <h1>{{shot.title}}</h1>
     <span class="muted">by</span>
     <a href="#/players/{{shot.player.username}}">
@@ -14,13 +14,13 @@
 </div>
 
 <div class="row">
-  <div class="span6">
-    <img class="shot_image" ng-src="{{shot.image_url}}">
+  <div class="large-7 columns">
+    <img class="thumbnail" ng-src="{{shot.image_url}}">
 
     <div class="page-header">
       <h2>Responses</h2>
     </div>
-    <div ng-repeat = "comment in comments.comments" class="media comment">
+    <div ng-repeat = "comment in comments.comments" class="media-comment">
       <div class="pull-left">
         <img class="media-object" ng-src="{{comment.player.avatar_url}}">
       </div>
@@ -42,22 +42,22 @@
     </button>
   </div>
 
-  <div class="span3">
-      <ul class="nav nav-list">
+  <div class="large-3 columns">
+      <ul class="nav-shot">
         <li>
-          <i class="icon-heart"></i>
+          <span aria-hidden="true" class="icon-heart"></span>
           {{shot.likes_count}} Likes
         </li>
         <li>
-          <i class="icon-eye-open"></i>
+          <span aria-hidden="true" class="icon-eye"></span>
           {{shot.views_count}} Views
         </li>
         <li>
-          <i class="icon-share-alt"></i>
+          <span aria-hidden="true" class="icon-redo"></span>
           {{shot.rebounds_count}} Rebounds
         </li>
         <li>
-          <i class="icon-comment"></i>
+          <span aria-hidden="true" class="icon-bubbles"></span>
           {{shot.comments_count}} Comments
         </li>
         <li>
@@ -67,10 +67,9 @@
           </a>
         </li>
       </ul>
-
   </div>
-  <div class="span3">
-    <h2>Rebounds</h2>
+  <div class="large-2 columns">
+    <h3>Rebounds</h3>
     <div shot-list="rebounds"></div>
   </div>
 </div>
