@@ -9,5 +9,5 @@ http://teamtreehouse.com/library/treehouse-workshops/building-with-angularjs-and
 **Requirements**
 
 - AngularJS Library
-- Foundation Zurb Library
+- Foundation Zurb
 - Dribbble API
